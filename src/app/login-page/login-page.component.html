@@ -1,11 +1,22 @@
-<p>login-page works!</p>
-
 <div>
   <h2>Login Page</h2>
 
   <form [formGroup]="loginForm">
-    <input type="text" formControlName="email" />
     <div>
+      <label for="email">Email :</label>
+      <input type="text" formControlName="email" id="email" />
+      <div
+        *ngIf="
+          loginForm.controls['email'].invalid &&
+          loginForm.controls['email'].touched
+        "
+      >
+        <small>Please enter valid email.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password :</label>
       <input type="password" formControlName="password" id="password" />
       <div
         *ngIf="
