@@ -1,0 +1,25 @@
+<p>login-page works!</p>
+
+<div>
+  <h2>Login Page</h2>
+
+  <form [formGroup]="loginForm">
+    <input type="text" formControlName="email" />
+    <div>
+      <input type="password" formControlName="password" id="password" />
+      <div
+        *ngIf="
+          loginForm.controls['password'].invalid &&
+          loginForm.controls['password'].touched
+        "
+      >
+        <small
+          >Password must contain at least one uppercase letter, one digit, and
+          one special character.</small
+        >
+      </div>
+    </div>
+
+    <button (click)="onSubmit()">Submit</button>
+  </form>
+</div>
