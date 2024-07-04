@@ -16,6 +16,8 @@ import {
 })
 export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
+  isSubmitted: boolean = false;
+  isError: boolean = false;
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
@@ -33,8 +35,10 @@ export class LoginPageComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
+      this.isSubmitted = true;
     } else {
-      window.alert('Invalid input');
+      this.isSubmitted = false;
+      this.isError = true;
     }
   }
 }

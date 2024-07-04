@@ -1,6 +1,8 @@
 <div>
   <h2>Login Page</h2>
-
+  @if (isError && !isSubmitted) {
+  <h5>Please enter all the valid input</h5>
+  } @if (!isSubmitted) {
   <form [formGroup]="loginForm">
     <div>
       <label for="email">Email :</label>
@@ -33,4 +35,7 @@
 
     <button (click)="onSubmit()">Submit</button>
   </form>
+  } @if (isSubmitted) {
+  <h2>Thank you for submitting your details</h2>
+  }
 </div>
