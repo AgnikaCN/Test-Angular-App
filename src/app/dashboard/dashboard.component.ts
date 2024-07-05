@@ -18,6 +18,7 @@ export class DashboardComponent {
     this.isModalOpen = false;
   }
   toggleDropdown() {
+    console.log(this.isDropdownOpen);
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 }
