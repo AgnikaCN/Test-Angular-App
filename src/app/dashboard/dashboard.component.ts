@@ -10,10 +10,14 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   isModalOpen: boolean = false;
+  isDropdownOpen: boolean = false;
   openModal() {
     this.isModalOpen = true;
   }
   closeModal() {
     this.isModalOpen = false;
+  }
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 }
