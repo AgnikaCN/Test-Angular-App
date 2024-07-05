@@ -1,0 +1,25 @@
+img[usemap] {
+  width: 100%;
+  height: auto;
+}
+
+.mainDiv {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+@media (max-width: 758px) {
+  .mainDiv {
+    flex-direction: column;
+  }
+}
+
+.image-mapper-shape {
+  fill: rgba(0, 0, 0, 0);
+}
+g:hover .image-mapper-shape {
+  stroke: white;
+  stroke-width: 2px;
+  opacity: 20%;
+}
