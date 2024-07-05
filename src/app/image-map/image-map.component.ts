@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 declare const imageMapResize: any;
 @Component({
   selector: 'app-image-map',
@@ -8,12 +15,23 @@ declare const imageMapResize: any;
   styleUrl: './image-map.component.scss',
 })
 export class ImageMapComponent implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  // ngAfterViewInit(): void {
+  //   const maps = document.querySelectorAll('map');
+  //   console.log('Found maps:', maps);
+  //   maps.forEach((map) => {
+  //     console.log('Resizing map:', map);
+  //     imageMapResize(map);
+  //   });
+  // }
   ngAfterViewInit(): void {
-    const maps = document.querySelectorAll('map');
-    console.log('Found maps:', maps);
-    maps.forEach((map) => {
-      console.log('Resizing map:', map);
-      imageMapResize(map);
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      const maps = document.querySelectorAll('map');
+      console.log('Found maps:', maps);
+      maps.forEach((map) => {
+        console.log('Resizing map:', map);
+        imageMapResize(map);
+      });
+    }
   }
 }
