@@ -13,7 +13,6 @@
         <h5>My LinkedIn account</h5>
       </div>
 
-      <!-- app.component.html -->
       <div class="">
         <button
           (click)="toggleDropdown()"
@@ -26,6 +25,7 @@
         </button>
 
         <div
+          *ngIf="isDropdownOpen"
           class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
@@ -63,8 +63,18 @@
       </div>
     </div>
   </div>
-</div>
 
+  <div>
+    <button
+      (click)="onButtonClick()"
+      type="button"
+      class="rounded-full bg-red-600 p-8 text-white cursor-pointer"
+    >
+      Button Click
+    </button>
+  </div>
+</div>
+<button type="button" onclick="alert('Hello world!')">Click Me!</button>
 <div class="flex justify-end items-end fixed inset-0 p-4">
   <button
     (click)="openModal()"

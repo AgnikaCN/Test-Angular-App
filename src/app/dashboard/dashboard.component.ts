@@ -21,4 +21,8 @@ export class DashboardComponent {
     console.log(this.isDropdownOpen);
     this.isDropdownOpen = !this.isDropdownOpen;
   }
+
+  onButtonClick() {
+    console.log('object');
+  }
 }
